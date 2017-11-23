@@ -13,7 +13,7 @@ import os
 import environ
 
 root = environ.Path(__file__)
-env = environ.Env()
+env = environ.Env(DEBUG=(bool, False),)  # set default values and casting
 
 BASE_DIR = (root - 2)()
 
@@ -34,7 +34,7 @@ DATABASES = {
     'default': env.db('DATABASE_URL'),
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
