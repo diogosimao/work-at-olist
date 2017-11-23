@@ -49,11 +49,15 @@ $ git clone https://github.com/diogosimao/work-at-olist.git && cd work-at-olist
 $ pipenv --three && pipenv install && pipenv shell
 ```
 
-5. Run it with *local* settings.
+5. Make sure you have [PostgreSQL](https://www.postgresql.org/download/) installed running on port 5432
+
+6. Set you local user and password to `./bin/start_development.sh` and create the database
 
 ```
-$ python manage.py runserver --settings=neattree.settings.local
+$ createdb neattree
 ```
+
+7. Run `./bin/start_development.sh`
 
 Development server should be up at [http://localhost:8000/](http://127.0.0.1:8000/).
 
@@ -62,15 +66,21 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 
 1. Make sure you have [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed and that you are logged in
 
-2. Be aware that [Release Phase](https://devcenter.heroku.com/articles/release-phase#defining-a-release-command) will be executed as you deploy it.
+2. Set `DEBUG=False` for safety measure
+
+```
+$ heroku config:set DEBUG=False
+```
+
+3. Be aware that [Release Phase](https://devcenter.heroku.com/articles/release-phase#defining-a-release-command) will be executed as you deploy it.
 
     2.1. It will generate a Django *production* environment `SECRET_KEY`
 
     2.2. It will run *Django migrate*.
 
-3. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
+4. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
 
-4. Get you herokuapp.com url and access it on your browser.
+5. Get you herokuapp.com url and access it on your browser.
 
 ```
 $ heroku info -s | grep web_url | cut -d= -f2

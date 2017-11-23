@@ -9,6 +9,28 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
+import os
+import environ
+
+root = environ.Path(__file__) - 2
+env = environ.Env()
+
+BASE_DIR = root()
+
+# SECURITY WARNING: this should not and won't be used in production environment
+SECRET_KEY = 'ld7s4bcrf)mso_*y^mnnfrr=fh&)4gs$*e%-acjxw5nyulpioz'
+
+secret_key_file_path = os.path.join(BASE_DIR, 'secretkey.txt')
+if os.path.exists(secret_key_file_path):
+    with open(secret_key_file_path) as f:
+        SECRET_KEY = f.read().strip()
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = env('DEBUG')
+
+DATABASES = {
+    'default': env.db('DATABASE_URL'),
+}
 
 ALLOWED_HOSTS = []
 
@@ -21,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_generate_secret_key',
     'apps.categories',
 ]
 

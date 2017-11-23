@@ -1,2 +1,2 @@
-release: ./release-tasks.sh
-web: gunicorn --env DJANGO_SETTINGS_MODULE=neattree.settings.production neattree.wsgi --log-file -
+release: ./bin/release-tasks.sh
+web: gunicorn neattree.wsgi --log-file -
