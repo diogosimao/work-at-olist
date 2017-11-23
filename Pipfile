@@ -16,9 +16,10 @@ python_version = "3.6"
 
 [packages]
 
-Django = "*"
+django = "*"
+django-environ = "*"
+django-generate-secret-key = "*"
 "psycopg2" = "*"
-prettyconf = "*"
-dj-database-url = "*"
 djangorestframework = "*"
 gunicorn = "*"
+whitenoise = "*"
