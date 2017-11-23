@@ -10,10 +10,14 @@ env.read_env()
 
 BASE_DIR = root()
 
+SECRET_KEY = env('SECRET_KEY')
+
 INSTALLED_APPS.append('django_generate_secret_key',)
 
-with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
-    SECRET_KEY = f.read().strip()
+secret_key_file_path = os.path.join(BASE_DIR, 'secretkey.txt')
+if os.path.exists(secret_key_file_path):
+    with open(secret_key_file_path) as f:
+        SECRET_KEY = f.read().strip()
 
 DEBUG = env('DEBUG')
 
