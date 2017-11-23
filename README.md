@@ -23,12 +23,13 @@ For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/
 ## Run the app locally
 
 1. Make sure you have [Python >= 3.5](https://www.python.org/downloads/source/) and [PIP](https://pip.pypa.io/en/stable/installing/) installed.
-1.1. In order to install it on Ubuntu like systems run:
 
-```
-$ sudo apt-get install python3 \
-    sudo apt-get install python3-pip
-```
+    1.1. In order to install it on Ubuntu like systems run:
+
+        ```
+        $ sudo apt-get install python3 \
+            sudo apt-get install python3-pip
+        ```
 
 2. Install `Pipenv`.
 
@@ -61,13 +62,13 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 
 1. Make sure you have [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed and that you are logged in
 
-2. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
+2. Be aware that [Release Phase](https://devcenter.heroku.com/articles/release-phase#defining-a-release-command) will be executed as you deploy it.
 
-3. After the deploy generate a Django *production* environment `SECRET_KEY`
+    2.1. It will generate a Django *production* environment `SECRET_KEY`
 
-```
-$ heroku run python manage.py generate_secret_key --replace --settings=neattree.settings.production
-```
+    2.2. It will run *Django migrate*.
+
+3. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
 
 4. Get you herokuapp.com url and access it on your browser.
 
