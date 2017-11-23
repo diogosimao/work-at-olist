@@ -1,1 +1,2 @@
-web: python manage.py runserver 0.0.0.0:5000 --settings=neattree.settings.production
+release: ./bin/release-tasks.sh
+web: python manage.py runserver 0.0.0.0:5000
