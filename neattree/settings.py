@@ -12,10 +12,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import environ
 
-root = environ.Path(__file__) - 2
+root = environ.Path(__file__)
 env = environ.Env()
 
-BASE_DIR = root()
+BASE_DIR = (root - 2)()
+
+PROJECT_ROOT = (root - 1)()
 
 # SECURITY WARNING: this should not and won't be used in production environment
 SECRET_KEY = 'ld7s4bcrf)mso_*y^mnnfrr=fh&)4gs$*e%-acjxw5nyulpioz'
@@ -116,7 +118,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, 'static'),
+]
+
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
