@@ -26,36 +26,26 @@ For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/
 
     1.1. In order to install it on Ubuntu like systems run:
 
-        ```
         $ sudo apt-get install python3 \
             sudo apt-get install python3-pip
-        ```
 
 2. Install `Pipenv`.
 
-```
-$ sudo pip3 install pipenv
-```
+        $ sudo pip3 install pipenv
 
 3. Git clone this [repo](https://github.com/diogosimao/work-at-olist). Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed
 
-```
-$ git clone https://github.com/diogosimao/work-at-olist.git && cd work-at-olist
-```
+        $ git clone https://github.com/diogosimao/work-at-olist.git && cd work-at-olist
 
 4. Use `Pipenv` to create a virtualenv, install its dependencies and activate the virtualenv.
 
-```
-$ pipenv --three && pipenv install && pipenv shell
-```
+        $ pipenv --three && pipenv install && pipenv shell
 
 5. Make sure you have [PostgreSQL](https://www.postgresql.org/download/) installed running on port 5432
 
 6. Set you local user and password to `./bin/start_development.sh` and create the database
 
-```
-$ createdb neattree
-```
+        $ createdb neattree
 
 7. Run `./bin/start_development.sh`
 
@@ -68,20 +58,18 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 
 2. Set `DEBUG=False` for safety measure
 
-```
-$ heroku config:set DEBUG=False
-```
+        $ heroku config:set DEBUG=False
 
 3. Be aware that [Release Phase](https://devcenter.heroku.com/articles/release-phase#defining-a-release-command) will be executed as you deploy it.
 
     2.1. It will generate a Django *production* environment `SECRET_KEY`
 
-    2.2. It will run *Django migrate*.
+    2.2. It will run *Django makemigrations*
+
+    2.3. It will run *Django migrate*
 
 4. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
 
 5. Get you herokuapp.com url and access it on your browser.
 
-```
-$ heroku info -s | grep web_url | cut -d= -f2
-```
+        $ heroku info -s | grep web_url | cut -d= -f2
