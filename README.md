@@ -6,7 +6,7 @@ For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/
 
 ## Documentation
 
-- API Documentation [neattree.readthedocs.io](neattree.readthedocs.io)
+- API Documentation [neattree.readthedocs.io](http://neattree.readthedocs.io/en/latest/)
 
 ## Stack
 
