@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to NEATtree's API documentation!
-====================================
+=========================================
 
 .. toctree::
    :maxdepth: 2
