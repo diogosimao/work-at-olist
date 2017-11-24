@@ -18,6 +18,7 @@ For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/
 - django-mptt
 - djangorestframework
 - djangorestframework-recursive
+- django-autoslug
 - psycopg2
 - gunicorn
 - whitenoise
@@ -62,16 +63,26 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 
         $ heroku config:set DEBUG=False
 
-3. Be aware that [Release Phase](https://devcenter.heroku.com/articles/release-phase#defining-a-release-command) will be executed as you deploy it.
+3. Set `SECRET_KEY` environment variable
 
-    3.1. It will generate a Django *production* environment `SECRET_KEY`
+    3.1 You can either use the following command to generate it:
 
-    3.2. It will run *Django makemigrations*
+        $python manage.py generate_secret_key --replace
 
-    3.3. It will run *Django migrate*
+    3.2 Get the key in the generated *secretkey.txt* file in the current dir or you can get a valid key elsewhere.
 
-4. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
+    3.3 After that set it on Heroku:
 
-5. Get you herokuapp.com url and access it on your browser.
+        $ heroku config:set SECRET_KEY='<YOUR_SECRET_KEY>'
+
+4. Be aware that [Release Phase](https://devcenter.heroku.com/articles/release-phase#defining-a-release-command) will be executed as you deploy it.
+
+    4.1. It will run *Django makemigrations*
+
+    4.2. It will run *Django migrate*
+
+5. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
+
+6. Get you herokuapp.com url and access it on your browser.
 
         $ heroku info -s | grep web_url | cut -d= -f2
