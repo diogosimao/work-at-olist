@@ -15,11 +15,12 @@ For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/
 - Django >= 1.10
 - django-environ
 - django-generate-secret-key
-- psycopg2
+- django-mptt
 - djangorestframework
+- djangorestframework-recursive
+- psycopg2
 - gunicorn
 - whitenoise
-- django-mptt
 
 ## Run the app locally
 
@@ -44,7 +45,7 @@ For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/
 
 5. Make sure you have [PostgreSQL](https://www.postgresql.org/download/) installed running on port 5432
 
-6. Set you local user and password to `./bin/start_development.sh` and create the database
+6. Set your local user and password to `./bin/start_development.sh` and create the database
 
         $ createdb neattree
 
