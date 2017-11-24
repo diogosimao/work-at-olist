@@ -62,11 +62,11 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 
 3. Be aware that [Release Phase](https://devcenter.heroku.com/articles/release-phase#defining-a-release-command) will be executed as you deploy it.
 
-    2.1. It will generate a Django *production* environment `SECRET_KEY`
+    3.1. It will generate a Django *production* environment `SECRET_KEY`
 
-    2.2. It will run *Django makemigrations*
+    3.2. It will run *Django makemigrations*
 
-    2.3. It will run *Django migrate*
+    3.3. It will run *Django migrate*
 
 4. Deploy it, [see here](https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app)
 
