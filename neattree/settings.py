@@ -12,20 +12,20 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import environ
 
+
 root = environ.Path(__file__)
-env = environ.Env(DEBUG=(bool, False),)  # set default values and casting
+env = environ.Env(DEBUG=(bool, False),
+                  SECRET_KEY=(str, ''))  # set default values and casting
 
 BASE_DIR = (root - 2)()
 
 PROJECT_ROOT = (root - 1)()
 
-# SECURITY WARNING: this should not and won't be used in production environment
-SECRET_KEY = 'ld7s4bcrf)mso_*y^mnnfrr=fh&)4gs$*e%-acjxw5nyulpioz'
+SECRET_KEY = env('SECRET_KEY')
 
-secret_key_file_path = os.path.join(BASE_DIR, 'secretkey.txt')
-if os.path.exists(secret_key_file_path):
-    with open(secret_key_file_path) as f:
-        SECRET_KEY = f.read().strip()
+if not SECRET_KEY:
+    # SECURITY WARNING: this should not and won't be used in production environment
+    SECRET_KEY = 'ld7s4bcrf)mso_*y^mnnfrr=fh&)4gs$*e%-acjxw5nyulpioz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_generate_secret_key',
 
     'apps.categories',
+    'apps.channels',
 ]
 
 MIDDLEWARE = [
