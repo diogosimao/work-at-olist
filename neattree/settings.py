@@ -45,8 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'mptt',
+    'rest_framework',
+    'rest_framework_recursive',
+
     'django_generate_secret_key',
+
     'apps.categories',
 ]
 
