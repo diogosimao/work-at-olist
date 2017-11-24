@@ -8,3 +8,6 @@
 .env
 tmp
 staticfiles
+_build
+_static
+_templates

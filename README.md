@@ -4,6 +4,10 @@ This is in order to take part into [Work at Olist](https://github.com/olist/work
 
 For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/blob/8df996261784661a5a54d0fdf9671b7c5f7cf2e2/README.md).
 
+## Documentation
+
+- API Documentation [neattree.readthedocs.io](neattree.readthedocs.io)
+
 ## Stack
 
 - Python >= 3.5
@@ -67,7 +71,7 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 
     3.1 You can either use the following command to generate it:
 
-        $python manage.py generate_secret_key --replace
+        $ python manage.py generate_secret_key --replace
 
     3.2 Get the key in the generated *secretkey.txt* file in the current dir or you can get a valid key elsewhere.
 
