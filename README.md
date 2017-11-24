@@ -19,6 +19,7 @@ For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/
 - djangorestframework
 - gunicorn
 - whitenoise
+- django-mptt
 
 ## Run the app locally
 
