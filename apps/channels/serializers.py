@@ -5,10 +5,10 @@ from apps.categories.serializers import CategorySerializer
 
 
 class ChannelSerializer(serializers.ModelSerializer):
-    categories_m2m = CategorySerializer(many=True)
+    categories = CategorySerializer(many=True)
 
     class Meta:
         model = Channel
-        fields = ('slug', 'name', 'categories_m2m')
+        fields = ('slug', 'name', 'categories')
         read_only_fields = ('slug', 'created_at')
 

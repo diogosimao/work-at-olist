@@ -16,7 +16,7 @@ class TimestampedModel(models.Model):
 class DefaultBaseModel(TimestampedModel):
     slug = AutoSlugField(db_index=True, max_length=255, unique=True, populate_from='name',
                          slugify=generate_random_string)
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
 
     class Meta:
         abstract = True
