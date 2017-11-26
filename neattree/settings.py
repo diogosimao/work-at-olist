@@ -15,7 +15,8 @@ import environ
 
 root = environ.Path(__file__)
 env = environ.Env(DEBUG=(bool, False),
-                  SECRET_KEY=(str, ''))  # set default values and casting
+                  SECRET_KEY=(str, ''),
+                  DATABASE_URL=(str, ''))  # set default values and casting
 
 BASE_DIR = (root - 2)()
 
