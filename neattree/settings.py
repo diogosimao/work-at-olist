@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'django_generate_secret_key',
 
+    'apps',
     'apps.categories',
     'apps.channels',
 ]
