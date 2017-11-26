@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'mptt',
     'rest_framework',
     'rest_framework_recursive',
+    'rest_framework_docs',
 
     'django_generate_secret_key',
 
@@ -137,3 +138,7 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+REST_FRAMEWORK_DOCS = {
+    'HIDE_DOCS': False if env('DEBUG') else True
+}

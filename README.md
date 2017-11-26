@@ -4,9 +4,13 @@ This is in order to take part into [Work at Olist](https://github.com/olist/work
 
 For original `README.md` [see here](https://github.com/olist/work-at-olist/blob/master/README.md).
 
+## API Documentation
+
+- Available on development mode [http://localhost:8000/docs/](http://127.0.0.1:8000/docs/)
+
 ## Documentation
 
-- API Documentation [neattree.readthedocs.io](http://neattree.readthedocs.io/en/latest/)
+- Documentation [neattree.readthedocs.io](http://neattree.readthedocs.io/en/latest/)
 
 ## Stack
 
@@ -23,6 +27,7 @@ For original `README.md` [see here](https://github.com/olist/work-at-olist/blob/
 - djangorestframework
 - djangorestframework-recursive
 - django-autoslug
+- drfdocs
 - psycopg2
 - gunicorn
 - whitenoise

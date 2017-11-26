@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "463be811b6e609320c372ce5956d8594e7e8cdca4f7d6fffe0971fdec69cfc23"
+            "sha256": "6f8bb4a8f015cd2e071c245e67452d97f808635569862a9acb2bc6ce54d0a218"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -76,6 +76,12 @@
                 "sha256:f8fc2d677ccb32fe53ec4153a45f66c822d0ce444824cba56edc76ca89b704ae"
             ],
             "version": "==0.1.2"
+        },
+        "drfdocs": {
+            "hashes": [
+                "sha256:a94d63d714aa2796d85b695a665b17092260ab2447b9aed7453bf914a0056e1e"
+            ],
+            "version": "==0.0.11"
         },
         "gunicorn": {
             "hashes": [
