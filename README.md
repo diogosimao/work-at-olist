@@ -2,7 +2,7 @@
 
 This is in order to take part into [Work at Olist](https://github.com/olist/work-at-olist).
 
-For original `README.md` [see here](https://github.com/diogosimao/work-at-olist/blob/8df996261784661a5a54d0fdf9671b7c5f7cf2e2/README.md).
+For original `README.md` [see here](https://github.com/olist/work-at-olist/blob/master/README.md).
 
 ## Documentation
 
