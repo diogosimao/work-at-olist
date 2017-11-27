@@ -25,7 +25,7 @@ def import_categories(categories_dict, channel=None, parent=None):
             for key, value in categories_dict.items():
                 new_node = Category(name=key, channel=channel, parent=parent)
                 new_node.save()
-                import_categories(value, parent=new_node)
+                import_categories(value, channel=channel, parent=new_node)
         Category.objects.rebuild()
 
 

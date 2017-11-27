@@ -1,13 +1,10 @@
 from django.conf.urls import url, include
-from rest_framework import routers
 
-from .views import ChannelViewSet
+from .views import ChannelViewSet, ChannelCategoriesViewSet
 
-
-router = routers.SimpleRouter(trailing_slash=False)
-router.register('channels', ChannelViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^channels/', ChannelViewSet.as_view()),
+    url(r'^channel/(?P<slug>[^/.]+)$', ChannelCategoriesViewSet.as_view()),
 ]
 
