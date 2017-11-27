@@ -1,15 +1,9 @@
-from django.conf.urls import url, include
-from rest_framework import routers
+from django.conf.urls import url
 
-from .views import CategoryViewSet, CategoryView, CategoryDetailView
+from .views import CategoryFamily
 
-
-router = routers.SimpleRouter(trailing_slash=False)
-router.register('categories', CategoryViewSet)
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
-    url(r'^category/(?P<pk>[0-9]+)$', CategoryDetailView.as_view()),
-    url(r'^details/', CategoryView.as_view()),
+    url(r'^category/(?P<slug>[^/.]+)$', CategoryFamily.as_view()),
 ]
 
