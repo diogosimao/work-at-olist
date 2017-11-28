@@ -20,21 +20,22 @@ class CategoryFamily(generics.RetrieveAPIView):
     serializer_class = CategorySerializer
 
     def retrieve(self, request, *args, **kwargs):
-        instance = self.get_object().get_family()
+        instances = self.get_object().get_family()
         data = ''
-        for category, structure in tree_item_iterator(instance):
+        channel = '"{}"'.format(instances[0].channel.slug)
+        for category, structure in tree_item_iterator(instances):
             if structure['new_level']:
                 data += '{'
             else:
                 data += '],'
-                data += '"channel": {}'.format(category.channel.id)
+                data += '"channel": {}'.format(channel)
                 data += '},{'
             data += '"slug": "{}",'.format(category.slug)
             data += '"name": "{}",'.format(category.name)
             data += '"subcategories": ['
             for level in structure['closed_levels']:
                 data += '],'
-                data += '"channel": {}'.format(category.channel.id)
+                data += '"channel": {}'.format(channel)
                 data += '}'
 
         return Response(json.loads(data))

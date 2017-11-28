@@ -6,7 +6,7 @@ For original `README.md` [see here](https://github.com/olist/work-at-olist/blob/
 
 ## API Documentation
 
-- Available on development mode [http://localhost:8000/docs/](http://127.0.0.1:8000/docs/)
+- Available on [http://localhost:8000/docs/](http://127.0.0.1:8000/docs/)
 
 ## Documentation
 
@@ -36,7 +36,7 @@ For original `README.md` [see here](https://github.com/olist/work-at-olist/blob/
 
 1. Make sure you have [Python >= 3.5](https://www.python.org/downloads/source/) and [PIP](https://pip.pypa.io/en/stable/installing/) installed.
 
-    1.1. In order to install it on Ubuntu like systems run:
+    1.1. In order to install it on Ubuntu-like systems run:
 
         $ sudo apt-get install python3 \
             sudo apt-get install python3-pip
