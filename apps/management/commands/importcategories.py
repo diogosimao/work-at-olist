@@ -1,7 +1,7 @@
 import os
 
-from django.core.management.base import BaseCommand, CommandError
-from django.db import transaction
+from django.core.management.base import BaseCommand
+from django.db import transaction, DatabaseError
 
 from apps.categories.models import Category
 from apps.channels.models import Channel
@@ -78,23 +78,28 @@ class Command(BaseCommand):
                             help='The name of .txt file with the full category\'s path')
 
     def handle(self, *args, **options):
-        main_dict = None
         try:
-            main_dict = parser_categories_file(file_path=os.path.join(os.curdir, options['file_name']))
+            if os.path.isabs(options['file_name']):
+                file_path = options['file_name']
+            else:
+                file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), options['file_name'])
+            main_dict = parser_categories_file(file_path=file_path)
         except FileNotFoundError:
-            raise CommandError("File not found")
+            self.stdout.write(self.style.ERROR("File not found"))
+            return False
 
-        channel = None
         try:
             channel = get_channel(options['channel_name'])
-        except Exception:
-            raise Exception
+        except DatabaseError:
+            self.stdout.write(self.style.ERROR("Channel error"))
+            return False
 
         try:
             full_update(channel)
             import_categories(main_dict, channel=channel)
-        except Exception:
-            raise Exception
+        except DatabaseError:
+            self.stdout.write(self.style.ERROR("Import error"))
+            return False
 
         self.stdout.write(self.style.SUCCESS('Success'))
 

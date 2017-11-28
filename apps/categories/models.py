@@ -16,3 +16,6 @@ class Category(MPTTModel, DefaultBaseModel):
     class MPTTMeta:
         order_insertion_by = ['name']
 
+    class Meta:
+        verbose_name_plural = "categories"
+
