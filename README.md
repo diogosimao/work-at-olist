@@ -59,7 +59,7 @@ For original `README.md` [see here](https://github.com/olist/work-at-olist/blob/
 
         $ createdb neattree
 
-7. Run `./bin/start_development.sh`
+7. Run `. ./bin/start_development.sh`
 
 Development server should be up at [http://localhost:8000/](http://127.0.0.1:8000/).
 
@@ -95,3 +95,18 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 6. Get you herokuapp.com url and access it on your browser.
 
         $ heroku info -s | grep web_url | cut -d= -f2
+
+
+## Django Management Command
+
+The command `importcategories` is available through DMC. The sintax is:
+
+        $ python manage.py importcategories <channel_name> <categories_file>
+
+Make sure to have env var `DATABASE_URL` set.
+
+
+## Tests
+
+    $ ./bin/run_tests.sh
+
