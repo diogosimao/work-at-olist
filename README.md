@@ -99,7 +99,7 @@ Development server should be up at [http://localhost:8000/](http://127.0.0.1:800
 
 ## Django Management Command
 
-The command `importcategories` is available through DMC. The sintax is:
+The command `importcategories` is available through DMC. The syntax is:
 
         $ python manage.py importcategories <channel_name> <categories_file>
 
@@ -107,6 +107,8 @@ Make sure to have env var `DATABASE_URL` set.
 
 
 ## Tests
+
+Some tests are available running:
 
     $ ./bin/run_tests.sh
 
