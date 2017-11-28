@@ -16,7 +16,8 @@ import environ
 root = environ.Path(__file__)
 env = environ.Env(DEBUG=(bool, False),
                   SECRET_KEY=(str, ''),
-                  DATABASE_URL=(str, ''))  # set default values and casting
+                  DATABASE_URL=(str, ''),
+                  HIDE_DOCS=(str, ''))  # set default values and casting
 
 BASE_DIR = (root - 2)()
 
@@ -140,5 +141,6 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 REST_FRAMEWORK_DOCS = {
-    'HIDE_DOCS': False if env('DEBUG') else True
+    'HIDE_DOCS': env('HIDE_DOCS')
 }
+
