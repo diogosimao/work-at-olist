@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from .views import CategoryFamily, CategoryView
+from .views import CategoryFamily
 
 
 urlpatterns = [
