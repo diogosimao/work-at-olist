@@ -112,4 +112,4 @@ Some tests are available running:
 
     $ ./bin/run_tests.sh
 
-Make sure to have env var `DATABASE_URL` set.
+Make sure to have env var `DATABASE_URL` set on `./bin/run_tests.sh`.

@@ -3,22 +3,9 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from rest_framework import status
 
-from .models import Channel
-from .serializers import ChannelSerializer, ChannelCategoriesSerializer
+from apps.channels.models import Channel
+from apps.channels.serializers import ChannelSerializer, ChannelCategoriesSerializer
 from apps.categories.models import Category
-
-
-class ChannelModelTest(TestCase):
-    def test_string_representation(self):
-        """ Test channel model string representation"""
-
-        channel = Channel(name='Channel Name')
-        self.assertEqual(str(channel), channel.name)
-
-    def test_verbose_name_plural(self):
-        """ Test channel model plural string representation"""
-
-        self.assertEqual(str(Channel._meta.verbose_name_plural), "channels")
 
 
 # initialize the APIClient app
@@ -44,6 +31,7 @@ class ChannelViewTest(TestCase):
             Category.objects.rebuild()
 
     def test_get_all_channels(self):
+        """ Test default channel view """
         # get API response
         response = client.get(reverse('channel:channels_list'))
         # get data from db
@@ -53,9 +41,17 @@ class ChannelViewTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_get_all_channel_categories(self):
+        """ Test all channel's categories view with valid slug """
+
         channel = Channel.objects.get(name='Channel Test2')
         response = client.get(reverse('channel:channels_categories', args=[channel.slug]))
         serializer = ChannelCategoriesSerializer(channel)
         self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_all_channel_categories_view_with_invalid_slug(self):
+        """ Test all channel's categories view with invalid slug """
+
+        response = client.get(reverse('channel:channels_categories', args=['wrong_slug']))
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
