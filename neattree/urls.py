@@ -23,7 +23,7 @@ import apps.channels.views
 urlpatterns = [
     url(r'^$', apps.categories.views.index, name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include('apps.categories.urls', namespace='categories')),
-    url(r'^api/', include('apps.channels.urls', namespace='channels')),
+    url(r'^api/', include('apps.categories.urls', namespace='category')),
+    url(r'^api/', include('apps.channels.urls', namespace='channel')),
     url(r'^docs/', include('rest_framework_docs.urls')),
 ]

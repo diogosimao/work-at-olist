@@ -14,9 +14,9 @@ class CommandsTestCase(TestCase):
         self.assertEqual(command_return, False)
 
     def test_importcategories_command(self):
-        """ Test importcategories custom command must return True."""
+        """ Test importcategories custom command must return None."""
 
-        args = ['marketplace', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_data.txt')]
+        args = ['marketplace_test', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_data.txt')]
         opts = {}
         command_return = call_command('importcategories', *args, **opts)
         self.assertEqual(command_return, None)
