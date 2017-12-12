@@ -78,14 +78,22 @@ class Command(BaseCommand):
                             help='The name of .txt file with the full category\'s path')
 
     def handle(self, *args, **options):
-        try:
+
+        file_path = os.path.join(os.path.curdir, options['file_name'])
+        if not os.path.exists(file_path):
             if os.path.isabs(options['file_name']):
                 file_path = options['file_name']
             else:
                 file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), options['file_name'])
+
+            if not os.path.exists(file_path):
+                self.stdout.write(self.style.ERROR("File not found"))
+                return False
+
+        try:
             main_dict = parser_categories_file(file_path=file_path)
-        except FileNotFoundError:
-            self.stdout.write(self.style.ERROR("File not found"))
+        except:
+            self.stdout.write(self.style.ERROR("Parser error"))
             return False
 
         try:
